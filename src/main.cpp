@@ -111,7 +111,7 @@ int main(int argc, char ** argv)
 		}
 		else
 		{
-			wdb::database::LoaderDatabaseConnection dbConnection( conf.database().pqDatabaseConnection(), "wdb_bil" );
+			wdb::database::LoaderDatabaseConnection dbConnection( conf.database().pqDatabaseConnection(), "matthiasm" );
 			BilLoader loader( dbConnection, conf.loading(), logHandler );
 			for ( std::vector<boost::filesystem::path>::const_iterator it = files.begin(); it != files.end(); ++ it )
 			{

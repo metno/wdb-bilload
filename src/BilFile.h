@@ -68,6 +68,11 @@ public:
      * @returns			A date as a std::string
 	 */
 	std::string getDate() const;
+	/// Retrieve X dimension
+	int nX() const;
+	/// Retrieve Y dimension
+	int nY() const;
+	
 
 private:
 	/// File name of the BIL file

@@ -137,6 +137,17 @@ void BilLoader::getValues(std::vector<double> & out, const BilFile & file)
     }
 	gridToLeftLowerHorizontal( out, field );
 	*/
+
+	// Screen orientation
+    int nI = file.nX();
+    int nJ = file.nY();
+    for ( int j = 1; j <= nJ / 2; j ++ ) {
+      for ( int i = 0; i < nI; i ++ ) {
+	swap( out[((nJ - j) * nI) + i], out[((j - 1) * nI) + i] );
+      }
+    }
+
+
 }
 
 

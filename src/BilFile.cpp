@@ -53,8 +53,8 @@ BilFile::BilFile( const path & file,
 		throw runtime_error(file.native_directory_string() + " is a directory, not a file");
 	string fileName = file.native_file_string();
 	bilFile_ = new boost::filesystem::ifstream( file );
-	nX_ = bilOptions.nRows;
-	nY_ = bilOptions.nCols;
+	nX_ = bilOptions.nCols;
+	nY_ = bilOptions.nRows;
 	nBits_ = bilOptions.nBits;
 }
 
@@ -130,7 +130,10 @@ void BilFile::readValues( std::vector<double> & out ) const
 	for ( unsigned int i=0; i<rawData.size(); i++ ) {
 		//if ((rawData[i] != 10000)&&((rawData[i] < 2716)||(rawData[i] > 2943)))
 		//	cout << rawData[i] << ", ";
-		out.push_back( rawData[i] / 10.0 );
+	  if ( rawData[i] != 10000.0 )
+	    out.push_back( rawData[i] / 10.0 );
+	  else
+	    out.push_back( rawData[i] );
 	}
 }
 
@@ -155,5 +158,15 @@ std::string BilFile::getDate() const
 	date[ date.find( '_' ) ] = '-';
 	return date;
 }
+
+  int BilFile::nX() const
+  {
+    return nX_;
+  }
+
+  int BilFile::nY() const
+  {
+    return nY_;
+  }
 
 }
