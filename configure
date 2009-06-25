@@ -21931,9 +21931,9 @@ wdb_CONFIG=`$wdb_conf --bindir`/wdbConfiguration
 
 wdb_CFLAGS=`$wdb_conf --cflags`
 
-wdb_LIBS="-L`$wdb_conf --libdir` -lwdbLoaderBase -lwdbConfiguration -lwdbProjection -lwdbException -lwdbLogHandler -lwdbMath"
+wdb_LIBS="-L`$wdb_conf --libdir` -lwdbLoad -lwdbConfig -lwdbProj -lwdbExcept -lwdbLog -lwdbMath"
 
-wdb_PKGLIBS="-L`$wdb_conf --libdir` -lwdbConfiguration -lwdbProjection -lwdbException -lwdbLogHandler -L`$wdb_conf --libdir`/wdb -ltestConfiguration"
+wdb_PKGLIBS="-L`$wdb_conf --libdir` -lwdbConfig -lwdbProj -lwdbExcept -lwdbLog -L`$wdb_conf --libdir`/wdb -ltestConfiguration"
 
 
 
