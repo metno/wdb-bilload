@@ -50,6 +50,7 @@
 using namespace std;
 using namespace boost::program_options;
 using namespace wdb;
+using namespace wdb::load;
 
 // Support Functions
 namespace

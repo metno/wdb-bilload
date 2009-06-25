@@ -30,8 +30,6 @@
 #include "BilFile.h"
 //#include <GridGeometry.h>
 #include <wdbException.h>
-#include <wdbEmptyResultException.h>
-#include <wdbDoNotLoadException.h>
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <wdbLogHandler.h>
 #include <algorithm>
@@ -40,7 +38,7 @@
 
 using namespace std;
 using namespace wdb;
-using namespace wdb::database;
+using namespace wdb::load;
 using namespace boost::posix_time;
 
 namespace bil
@@ -99,7 +97,7 @@ void BilLoader::load(const bil::BilFile & file)
 							dataVersion( file ),
 							confidenceCode( file ) );
 	}
-	catch ( wdb::WdbDoNotLoadException &e)
+	catch ( wdb::ignore_value &e)
 	{
 		log.infoStream() << e.what();
 	}

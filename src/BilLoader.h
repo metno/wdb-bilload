@@ -52,7 +52,7 @@ public:
 	 * @param	loadingOptions	The options used in loading files
 	 * @param	logHandler		Reference to WDB logging
 	 */
-	BilLoader( wdb::database::LoaderDatabaseConnection & connection,
+	BilLoader( wdb::load::LoaderDatabaseConnection & connection,
 			   const  wdb::BilLoadConfiguration::LoadingOptions & loadingOptions,
 			   wdb::WdbLogHandler & logHandler );
 	/**
@@ -130,9 +130,9 @@ private:
 	/// Configuration Map
 	//	std::map<felt::word, long int> felt2wdbDataProvider_;
 	/// Reference to database connection
-	wdb::database::LoaderDatabaseConnection & connection_;
+	wdb::load::LoaderDatabaseConnection & connection_;
 	/// Reference to the loading options
-	const wdb::LoaderConfiguration::LoadingOptions & loadingOptions_;
+	const wdb::load::LoaderConfiguration::LoadingOptions & loadingOptions_;
 	/// Reference to the log handler
 	wdb::WdbLogHandler & logHandler_;
 };

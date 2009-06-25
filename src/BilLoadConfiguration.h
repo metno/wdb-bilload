@@ -61,7 +61,7 @@ namespace wdb
  *
  * @see LoaderConfiguration
  */
-class BilLoadConfiguration : public LoaderConfiguration
+class BilLoadConfiguration : public load::LoaderConfiguration
 {
 public:
 	// LIFECYCLE
