@@ -22,7 +22,7 @@ AM_CXXFLAGS = $(wdb_CFLAGS)
 	
 bilLoad_CPPFLAGS =  
 bilLoad_LDADD = $(wdb_LIBS) \
-				-lwdbLoaderBase -lwdbConfiguration -lwdbProjection -lwdbException -lwdbLogHandler -lwdbMath
+				-lwdbLoad -lwdbConfig -lwdbProj -lwdbExcept -lwdbLog -lwdbMath
 
 SED_SUBSTITUTION = 		sed s/__WDB_VERSION__/$(WDB_VERSION)/g $<\
 						| sed s¤__WDB_LIB_PATH__¤"$(LD_LIBRARY_PATH)"¤g \
