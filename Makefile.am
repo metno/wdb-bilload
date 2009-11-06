@@ -7,7 +7,7 @@
 
 
 # Scanned by Autoreconf; must be static (no expansion)
-ACLOCAL_AMFLAGS = 		-I config
+ACLOCAL_AMFLAGS = 		-I m4
 				
 # Share directory organization
 wdbdatadir = 			$(datadir)/wdb
@@ -46,4 +46,3 @@ SED_SUBSTITUTION = 		sed s/__WDB_VERSION__/$(WDB_VERSION)/g $<\
 EXTRA_DIST =
 
 include src/bilLoad.mk
-#include test/feltLoad.mk
