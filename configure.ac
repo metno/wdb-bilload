@@ -99,4 +99,5 @@ AM_PROG_CC_C_O
 
 # Configuration Files
 AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([doc/doxygen/Doxyfile])
 AC_OUTPUT
