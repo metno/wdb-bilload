@@ -25,7 +25,7 @@ bilLoad_LDADD = $(wdb_LIBS) \
 				-lwdbLoad -lwdbConfig -lwdbProj -lwdbExcept -lwdbLog -lwdbMath
 
 SED_SUBSTITUTION = 		sed s/__WDB_VERSION__/$(WDB_VERSION)/g $<\
-						| sed s¤__WDB_LIB_PATH__¤"$(LD_LIBRARY_PATH)"¤g \
+						| sed sï¿½__WDB_LIB_PATH__ï¿½"$(LD_LIBRARY_PATH)"ï¿½g \
 						| sed s:__WDB_LOGDIR__:@abs_builddir@/var/logs:g \
 						| sed s:__WDB_BUILDDIR__:@abs_builddir@:g \
 						| sed s:__WDB_SRCDIR__:@srcdir@:g \
@@ -48,3 +48,5 @@ EXTRA_DIST =
 
 include doc/doxygen/bilLoad.mk
 include src/bilLoad.mk
+
+include mk/debian.mk
