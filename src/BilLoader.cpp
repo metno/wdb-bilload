@@ -148,27 +148,46 @@ void BilLoader::getValues(std::vector<double> & out, const BilFile & file)
 
 }
 
+/*
+ * The following code is duplicated in LoaderDatabaseConnection.
+ * For dataProvider and place, the code is duplicated to ensure that
+ * errors are thrown if these options are omitted.
+ * In other cases, the information is required in case the filenames
+ * do not contain the relevant "encoding".
+ */
 
 std::string BilLoader::dataProvider(const BilFile & file)
 {
-	return loadingOptions_.dataProvider;
+	std::string ret = loadingOptions_.dataProvider;
+	if ( ret.empty() )
+		throw std::invalid_argument("BIL files do not contain encoded data provider information. Data provider must be defined on the command line");
+	return ret;
 }
 
 std::string BilLoader::place(const BilFile & file)
 {
-	return loadingOptions_.placeName;
+	std::string ret = loadingOptions_.placeName;
+	if ( ret.empty() )
+		throw std::invalid_argument("BIL files do not contain encoded place information. Place definition must be defined on the command line");
+	return ret;
 }
 
 std::string BilLoader::referenceTime(const BilFile & file)
 {
-	// Default - 0600 UTC on the date given by the file
-	std::string ret = file.getDate() + " 06:00:00 UTC";
+	std::string ret = loadingOptions_.referenceTime;
+	if ( ret.empty() ) {
+		// Default - 0600 UTC on the date given by the file
+		std::string ret = file.getDate() + " 06:00:00 UTC";
+	}
 	return ret;
 }
 
 std::string BilLoader::validTimeFrom(const BilFile & file)
 {
-	std::string ts = file.getDate() + " 06:00:00";
+	std::string ts = loadingOptions_.referenceTime;
+	if ( ts.empty() ) {
+		ts = file.getDate() + " 06:00:00";
+	}
 	ptime t( time_from_string( ts ) );
 	// Default - 24 hours prior to the reference time
 	ptime retTime = t - hours(24);
@@ -178,36 +197,46 @@ std::string BilLoader::validTimeFrom(const BilFile & file)
 
 std::string BilLoader::validTimeTo(const BilFile & file)
 {
-	// Default - 0600 UTC on the date given by the file
-	std::string ret = file.getDate() + " 06:00:00 UTC";
+	std::string ret = loadingOptions_.referenceTime;
+	if ( ret.empty() ) {
+		// Default - 0600 UTC on the date given by the file
+		std::string ret = file.getDate() + " 06:00:00 UTC";
+	}
 	return ret;
 }
 
 std::string BilLoader::valueParameter(const BilFile & file)
 {
-	std::string hdr = file.getHead();
-	if ( hdr == "tm") {
-		return "air temperature";
+	std::string ret = loadingOptions_.valueParameter;
+	if ( ret.empty() ) {
+		std::string hdr = file.getHead();
+		if ( hdr == "tm") {
+			return "air temperature";
+		}
+		else if (hdr == "rr") {
+			return "precipitation amount";
+		}
+		else
+			throw std::invalid_argument("The parameter could not be decoded from the file name");
 	}
-	else
-	if (hdr == "rr") {
-		return "accumulated precipitation surface density";
-	}
-	else
-		throw std::invalid_argument("The parameter could not be decoded from the file name");
+	return ret;
 }
 
 std::string BilLoader::levelParameter(const BilFile & file)
 {
-	return "height above ground distance";
+	std::string ret = loadingOptions_.levelParameter;
+	if ( ret.empty() ) {
+		return "ground or water surface";
+	}
+	return ret;
 }
 float BilLoader::levelFrom(const BilFile & file)
 {
-	return 2.0;
+	return 0.0;
 }
 float BilLoader::levelTo(const BilFile & file)
 {
-	return 2.0;
+	return 0.0;
 }
 
 int BilLoader::dataVersion(const BilFile & file)

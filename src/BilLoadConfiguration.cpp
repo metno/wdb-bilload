@@ -69,7 +69,7 @@ getBil( BilLoadConfiguration::BilOptions & out )
 	( "ncols", value<int>( & out.nCols )->default_value( 1195 ), "Number of columns in the BIL file" )
 	( "nrows", value<int>( & out.nRows )->default_value( 1550 ), "Number of rows in the BIL file" )
 	( "nbits", value<int>( & out.nBits )->default_value( 16 ), "Number of bits in a value (only 8, 16, and 32 bits allowed)" )
-    ;
+	;
 
     return bilload;
 }
