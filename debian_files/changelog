@@ -1,6 +1,6 @@
-bilload (0.9.8-1) lucid; urgency=low
+bilload (0.9.8-1) lucid; urgency=high
 
-  * Debian package for BIL file loader. Base version. 
+  * Initial release of the debian package for the BIL file loader in wdb. 
 
- -- Michael Omotayo Akinde <michaeloa@pc2506.pc.met.no>  Thu, 27 Jan 2011 12:00:00 +0000
+ -- Michael Omotayo Akinde <wdb@met.no>  Thu, 27 Jan 2011 12:00:00 +0000
 
