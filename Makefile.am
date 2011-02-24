@@ -50,3 +50,5 @@ include doc/doxygen/bilLoad.mk
 include src/bilLoad.mk
 
 include mk/debian.mk
+
+debian: common-debian
