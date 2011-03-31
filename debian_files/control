@@ -1,4 +1,4 @@
-Source: bilload  
+Source: wdb-bilload  
 Section: science
 Priority: extra
 Maintainer: Michael AKinde <wdb@met.no>
@@ -9,7 +9,7 @@ Build-Conflicts: autoconf2.13,
  automake1.4
 Standards-Version: 3.9.1
 
-Package: bilload
+Package: wdb-bilload
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends},
  libwdbload1
