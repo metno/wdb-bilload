@@ -177,7 +177,7 @@ std::string BilLoader::referenceTime(const BilFile & file)
 	std::string ret = loadingOptions_.referenceTime;
 	if ( ret.empty() ) {
 		// Default - 0600 UTC on the date given by the file
-		std::string ret = file.getDate() + " 06:00:00 UTC";
+		ret = file.getDate() + " 06:00:00 UTC";
 	}
 	return ret;
 }
@@ -200,7 +200,7 @@ std::string BilLoader::validTimeTo(const BilFile & file)
 	std::string ret = loadingOptions_.referenceTime;
 	if ( ret.empty() ) {
 		// Default - 0600 UTC on the date given by the file
-		std::string ret = file.getDate() + " 06:00:00 UTC";
+		ret = file.getDate() + " 06:00:00 UTC";
 	}
 	return ret;
 }
@@ -226,17 +226,17 @@ std::string BilLoader::levelParameter(const BilFile & file)
 {
 	std::string ret = loadingOptions_.levelParameter;
 	if ( ret.empty() ) {
-		return "ground or water surface";
+		return "height above ground";
 	}
 	return ret;
 }
 float BilLoader::levelFrom(const BilFile & file)
 {
-	return 0.0;
+	return 2.0;
 }
 float BilLoader::levelTo(const BilFile & file)
 {
-	return 0.0;
+	return 2.0;
 }
 
 int BilLoader::dataVersion(const BilFile & file)

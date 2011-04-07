@@ -1,6 +1,9 @@
 wdb-bilload (1.0.0-1) lucid; urgency=high
 
-  * Initial release of the debian package for the BIL file loader in wdb. 
+  * Loading program now uses the user/role defined in the command line
+    configuration rather than a hard-coded value.
+    
+  * Fixed a bug in the reference time generation.
 
  -- Michael Akinde <wdb@met.no>  Wed, 30 Mar 2011 12:00:00 +0000
 

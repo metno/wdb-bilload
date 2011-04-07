@@ -111,8 +111,12 @@ int main(int argc, char ** argv)
 		}
 		else
 		{
-			wdb::load::LoaderDatabaseConnection dbConnection( conf.database().pqDatabaseConnection(), "matthiasm" );
-			BilLoader loader( dbConnection, conf.loading(), logHandler );
+
+		    log.debugStream() << "Attempting to connect to database " << conf.pqDatabaseConnection();
+		   	wdb::load::LoaderDatabaseConnection connection( conf );
+		    log.debugStream() << "...connected";
+
+		    BilLoader loader( connection, conf.loading(), logHandler );
 			for ( std::vector<boost::filesystem::path>::const_iterator it = files.begin(); it != files.end(); ++ it )
 			{
 				try
