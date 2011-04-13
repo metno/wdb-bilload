@@ -4,6 +4,8 @@ wdb-bilload (1.0.0-1) lucid; urgency=high
     configuration rather than a hard-coded value.
     
   * Fixed a bug in the reference time generation.
+  
+  * Removed calls to deprecated libwdbload1 functionality.
 
  -- Michael Akinde <wdb@met.no>  Wed, 30 Mar 2011 12:00:00 +0000
 
