@@ -8,11 +8,11 @@
 #-----------------------------------------------------------------------------
 
 AC_PREREQ(2.59)
-AC_INIT(bilLoad, 1.0.0, [wdb@met.no])
+AC_INIT(bilLoad, 1.0.1, [wdb@met.no])
 # Config
 AC_CONFIG_SRCDIR([config.h.in])
 AC_CONFIG_HEADER([config.h])
-AC_CONFIG_MACRO_DIR([../wdb-config/m4])
+AC_CONFIG_MACRO_DIR([config/m4])
 
 AC_PROG_LIBTOOL
 
@@ -65,8 +65,7 @@ VL_LIB_READLINE
 #-----------------------------------------------------------------------------
 
 # wdb
-#PKG_CHECK_MODULES(wdbLoaderBase, loaderBase)
-WDB_LOADERBASE_CHECK
+WDB_LIBWDBLOAD_CHECK
 
 # BOOST
 WDB_BOOST_CHECK(1.33.1)

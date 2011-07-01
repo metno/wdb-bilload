@@ -7,7 +7,7 @@
 
 
 # Scanned by Autoreconf; must be static (no expansion)
-ACLOCAL_AMFLAGS = 		-I ../wdb-config/m4
+ACLOCAL_AMFLAGS = 		-I config/m4
 				
 # Share directory organization
 wdbdatadir = 			$(datadir)/wdb
@@ -49,6 +49,6 @@ EXTRA_DIST =
 include doc/doxygen/bilLoad.mk
 include src/bilLoad.mk
 
-include ../wdb-config/mk/debian.mk
+include config/mk/debian.mk
 
 debian: common-debian
